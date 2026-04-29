@@ -25,4 +25,11 @@ export default class MessageService {
       action
     }
   }
+  
+  async listAll(){
+    return {
+      users: await this.#db.user.findMany(),
+      actions: await this.#db.action.findMany()
+    }
+  }
 }
