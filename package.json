@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "api-backend-service",
+  "name": "rest-service",
   "version": "1.0.0",
   "description": "This project was bootstrapped with Fastify-CLI.",
   "main": "app.ts",
@@ -17,34 +17,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mr0xff/api-backend-service.git"
+    "url": "git+https://github.com/mr0xff/rest-service.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mr0xff/api-backend-service/issues"
+    "url": "https://github.com/mr0xff/rest-service/issues"
   },
-  "homepage": "https://github.com/mr0xff/api-backend-service#readme",
+  "homepage": "https://github.com/mr0xff/rest-service#readme",
   "dependencies": {
+    "fastify": "^5.0.0",
+    "fastify-plugin": "^5.0.0",
     "@fastify/autoload": "^6.0.0",
     "@fastify/sensible": "^6.0.0",
-    "@fastify/swagger": "^9.5.1",
-    "@fastify/swagger-ui": "^5.2.3",
-    "@prisma/client": "6.19",
-    "dotenv": "^17.3.1",
-    "fastify": "^5.8.1",
-    "fastify-cli": "^7.3.0",
-    "fastify-plugin": "^5.0.0",
-    "mongoose": "^8.16.0",
-    "prisma": "6.19"
+    "fastify-cli": "^7.4.0"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0",
+    "@types/node": "^22.1.0",
     "c8": "^10.1.2",
+    "ts-node": "^10.4.0",
     "concurrently": "^9.0.0",
     "fastify-tsconfig": "^3.0.0",
-    "ts-node": "^10.4.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.8.2"
   }
 }
