@@ -6,8 +6,16 @@ export default function api(fastify: FastifyInstance){
     res.send({ message: "banana" })
   });
 
-  fastify.get("/list", async (req, res) => {
-    res.send({ data: await message.listAll() });
+  fastify.get<{
+    Querystring: {
+      u: string;
+      a: string; 
+    }
+  }>("/list", async (req, res) => {
+    res.send({ data: await message.listAll({ 
+      user: !!req.query.u,
+      action: !!req.query.a
+    }) });
   });
 
   fastify.post<{
