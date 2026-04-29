@@ -1,6 +1,7 @@
-import { prisma } from "../src/lib/prisma";
+import { PrismaClient } from "@prisma/client/extension";
 import MessageService from "../src/services/message.service";
 
+const prisma = new PrismaClient()
 const message = new MessageService(prisma);
 
 await message.createUserWithAction({
