@@ -1,4 +1,4 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import { PrismaClient } from "../generated/prisma/client.js";
 
 export default class MessageService {
   #db: PrismaClient;
@@ -26,7 +26,20 @@ export default class MessageService {
     }
   }
   
-  async listAll(){
+  async listAll(filter?: {
+    user: boolean;
+    action: boolean;
+  }){
+
+
+    if(filter?.user) return {
+      users: await this.#db.user.findMany()
+    }
+
+    if(filter?.action) return {
+      actions: await this.#db.action.findMany()
+    }
+    
     return {
       users: await this.#db.user.findMany(),
       actions: await this.#db.action.findMany()
