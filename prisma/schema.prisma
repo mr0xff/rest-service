@@ -1,8 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
   provider = "prisma-client"
@@ -10,25 +9,21 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String    @unique
-  send_messages Message[] @relation("sender")
-  recv_messages Message[] @relation("receiver")
-  created_at    DateTime  @default(now())
-  updated_at    DateTime  @default(now()) @updatedAt
+  id String @id @default(uuid()) 
+  name String
 }
 
-model Message {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  body        String
-  sender_id   String   @db.ObjectId
-  receiver_id String   @db.ObjectId
-  sender      User     @relation("sender", fields: [sender_id], references: [id])
-  created_at  DateTime @default(now())
-  receiver    User     @relation("receiver", fields: [receiver_id], references: [id])
+model Action {
+  id String @id @default(uuid())
+  name TAction
+}
+
+enum TAction {
+  READ
+  WRITE
+  EXECUTE
 }
