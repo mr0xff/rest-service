@@ -66,4 +66,4 @@ dist
 
 /generated/prisma
 
-/db/mydb.db
+db

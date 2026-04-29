@@ -1,5 +1,5 @@
-import { MessageService } from "../src/services";
 import { prisma } from "../src/lib/prisma";
+import MessageService from "../src/services/message.service";
 
 const message = new MessageService(prisma);
 
