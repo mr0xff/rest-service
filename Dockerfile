@@ -32,7 +32,6 @@ COPY --from=builder /app/yarn.lock ./
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/LICENSE ./LICENSE
 COPY --from=builder /app/prisma.config.ts ./prisma.config.ts
 COPY --from=builder /app/.env.production ./.env
 
@@ -44,4 +43,4 @@ RUN rm -rf node_modules/@prisma/engines && \
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["yarn", "start:prod"]
