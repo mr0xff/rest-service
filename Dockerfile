@@ -41,6 +41,8 @@ RUN rm -rf node_modules/@prisma/engines && \
     rm -rf /usr/local/share/.cache/yarn && \
     rm -rf /root/.cache
 
+RUN yarn prisma db push 
+
 EXPOSE 3000
 
 CMD ["yarn", "start:prod"]
